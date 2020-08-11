@@ -5,14 +5,15 @@ import Input from '../components/Input/Input';
 import colors from '../constants/colors';
 import NumberContainer from '../components/NumberContainer/NumberContainer';
 import { Header } from 'react-native/Libraries/NewAppScreen';
-
+import BodyText from '../components/BodyText/BodyText';
+import TitleText from '../components/TitleText/TitleText';
 const GameScreen = (props) => {
     return (
         <View style={styles.screen}>
             
-            <Text>GAME OVER</Text>
-            <Text>The number was: {props.selectedNumber}</Text>
-            <Text>Guess rounds: {props.guessRounds}</Text>
+            <TitleText>GAME OVER</TitleText>
+            <BodyText>The number was: {props.selectedNumber}</BodyText>
+            <BodyText>Guess rounds: {props.guessRounds}</BodyText>
             <Button title='START NEW GAME' onPress={props.onNewGame}/>
         </View>
     )

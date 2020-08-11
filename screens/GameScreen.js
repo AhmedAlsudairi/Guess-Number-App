@@ -5,7 +5,8 @@ import Input from '../components/Input/Input';
 import colors from '../constants/colors';
 import NumberContainer from '../components/NumberContainer/NumberContainer';
 import { Header } from 'react-native/Libraries/NewAppScreen';
-
+import BodyText from '../components/BodyText/BodyText';
+import TitleText from '../components/TitleText/TitleText';
 
 const generateRandomGuess = (min , max, exclude) => {
     let minimaum = Math.ceil(min);
@@ -50,7 +51,7 @@ const GameScreen = (props) => {
     return (
         <View style={styles.screen}>
             
-            <Text>Gueesed number: </Text>
+            <TitleText>Gueesed number: </TitleText>
             <NumberContainer style={styles.numberContainer}>{guessed}</NumberContainer>
             <Card style={styles.buttons}>
                 <Button title='LOWER' onPress={()=>{nextGuess('lower')}}/>
