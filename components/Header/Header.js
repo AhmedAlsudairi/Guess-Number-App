@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         color: colors.praimaryText,
-        fontSize: 28
+        fontSize: 28,
+        fontFamily: 'open-sans-bold'
     }
 })
 export default Header;
