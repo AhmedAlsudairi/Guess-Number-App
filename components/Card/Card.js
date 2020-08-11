@@ -4,7 +4,7 @@ import { View, Text, StyleSheet} from 'react-native';
 const Card = (props) => {
 
     return (
-        <View style={styles.inputContainer}>
+        <View {...props} style={{...styles.inputContainer,...props.style}}>
             {props.children}
         </View>
     );
