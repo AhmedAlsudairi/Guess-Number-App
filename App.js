@@ -19,7 +19,7 @@ export default function App() {
   const [isLoad,setIsLoad] = useState(false);
 
   if(!isLoad){
-    <AppLoading startAsync={onFontLoad} onFinish={()=> {setIsLoad(true)}}  />
+  return <AppLoading startAsync={onFontLoad} onFinish={()=> {setIsLoad(true)}}  />;
   }
   const onNewGameHandler = () => {
     setSelectedNumber(null);
