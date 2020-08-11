@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert , Image} from 'react-native';
 import Card from '../components/Card/Card';
 import Input from '../components/Input/Input';
 import colors from '../constants/colors';
@@ -12,6 +12,7 @@ const GameScreen = (props) => {
         <View style={styles.screen}>
             
             <TitleText>GAME OVER</TitleText>
+            <Image source={require('../assets/success.png')} style={styles.image} resizeMode='cover'/>
             <BodyText>The number was: {props.selectedNumber}</BodyText>
             <BodyText>Guess rounds: {props.guessRounds}</BodyText>
             <Button title='START NEW GAME' onPress={props.onNewGame}/>
@@ -36,6 +37,14 @@ const styles = StyleSheet.create({
     },
     numberContainer: {
         width: '15%'
+    },
+    image: {
+        width: 300,
+        height: 300,
+        borderRadius: 150,
+        borderWidth: 3,
+        borderColor: colors.primary,
+        margin: 15
     }
 })
 export default GameScreen;
