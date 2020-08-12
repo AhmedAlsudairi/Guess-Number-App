@@ -1,10 +1,10 @@
 import React from 'react';
-import {Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 const TitleText = (props) => {
 
     return (
-            <Text style={{...styles.TitleText,...props.style}}>{props.children}</Text>
+        <Text style={{ ...styles.TitleText, ...props.style }}>{props.children}</Text>
     );
 }
 

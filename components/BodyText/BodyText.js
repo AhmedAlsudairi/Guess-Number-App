@@ -1,10 +1,10 @@
 import React from 'react';
-import {Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 const BodyText = (props) => {
 
     return (
-            <Text style={{...styles.BodyText,...props.style}}>{props.children}</Text>
+        <Text style={{ ...styles.BodyText, ...props.style }}>{props.children}</Text>
     );
 }
 

@@ -1,12 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import colors from '../../constants/colors';
-import BodyText from '../BodyText/BodyText';
 import TitleText from '../TitleText/TitleText';
 const NumberContainer = (props) => {
 
     return (
-        <View style={{...styles.numberContainer,...props.style}}>
+        <View style={{ ...styles.numberContainer, ...props.style }}>
             <TitleText style={styles.number}>{props.children}</TitleText>
         </View>
     );
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
         borderColor: colors.secondary,
         borderWidth: 5
 
-        },
+    },
     number: {
         color: colors.praimaryText,
         fontSize: 22

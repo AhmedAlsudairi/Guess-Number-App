@@ -1,28 +1,24 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert , Image} from 'react-native';
-import Card from '../components/Card/Card';
-import Input from '../components/Input/Input';
+import React from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import colors from '../constants/colors';
-import NumberContainer from '../components/NumberContainer/NumberContainer';
-import { Header } from 'react-native/Libraries/NewAppScreen';
 import BodyText from '../components/BodyText/BodyText';
 import TitleText from '../components/TitleText/TitleText';
 import MainButton from '../components/MainButton/MainButton';
 const GameScreen = (props) => {
     return (
         <View style={styles.screen}>
-            
-            <TitleText style={styles.title}>GAME OVER</TitleText> 
-            <Image 
-            source={require('../assets/success.png')} 
-            // source={{uri: 'https://image.freepik.com/free-vector/glitch-game-background_23-2148090006.jpg'}}
-            style={styles.image} 
-            resizeMode='cover' 
-            fadeDuration={1000}
+
+            <TitleText style={styles.title}>GAME OVER</TitleText>
+            <Image
+                source={require('../assets/success.png')}
+                // source={{uri: 'https://image.freepik.com/free-vector/glitch-game-background_23-2148090006.jpg'}}
+                style={styles.image}
+                resizeMode='cover'
+                fadeDuration={1000}
             />
             <BodyText style={styles.text}>You select <Text style={styles.highlight}>{props.selectedNumber}</Text> number, the phone take <Text style={styles.highlight}>{props.guessRounds}</Text> rounds to guess your number.</BodyText>
-                <MainButton title='START NEW GAME' onPress={props.onNewGame} color={colors.secondary} style={styles.button}/>
-            
+            <MainButton title='START NEW GAME' onPress={props.onNewGame} color={colors.primary} style={styles.button} />
+
         </View>
     )
 }

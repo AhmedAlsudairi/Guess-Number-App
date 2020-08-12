@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 import Card from '../components/Card/Card';
 import Input from '../components/Input/Input';
 import colors from '../constants/colors';
@@ -24,7 +24,7 @@ const StartScreen = (props) => {
     const confirmHandler = () => {
         const number = parseInt(enteredText);
         if (isNaN(number) || number <= 0 || number > 99) {
-            Alert.alert('Invalid Number!','You have to choose number between 1 and 99',[{text:'Okay',style:'destructive',onPress: resetHandler}])
+            Alert.alert('Invalid Number!', 'You have to choose number between 1 and 99', [{ text: 'Okay', style: 'destructive', onPress: resetHandler }])
             return;
         }
         setConfirmed(true);
@@ -39,15 +39,15 @@ const StartScreen = (props) => {
             <BodyText>You choose:</BodyText>
             <NumberContainer>{selectedNumber}</NumberContainer>
             <BodyText>Did you want to start?</BodyText>
-            
-                    <MainButton title='START GAME' onPress={()=>{ props.onStartGame(selectedNumber)}} color={colors.primary} style={styles.button}/>
-                
+
+            <MainButton title='START GAME' onPress={() => { props.onStartGame(selectedNumber) }} color={colors.primary} style={styles.button} />
+
         </Card>
         )
     }
 
     return (
-        <TouchableWithoutFeedback onPress={()=>{ Keyboard.dismiss()}}>
+        <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss() }}>
             <View style={styles.screen}>
                 <TitleText style={styles.title}>Start a New Game</TitleText>
                 <Card>
@@ -61,8 +61,8 @@ const StartScreen = (props) => {
                         value={enteredText} />
 
                     <View style={styles.buttons}>
-                            <MainButton title='Confirm' color={colors.primary} onPress={confirmHandler} />
-                            <MainButton title='Reset' color={colors.secondary} onPress={resetHandler} />
+                        <MainButton title='Confirm' color={colors.primary} onPress={confirmHandler} />
+                        <MainButton title='Reset' color={colors.secondary} onPress={resetHandler} />
                     </View>
                 </Card>
                 {result}

@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert, ScrollView } from 'react-native';
+import { View, StyleSheet, Alert, ScrollView } from 'react-native';
 import Card from '../components/Card/Card';
-import Input from '../components/Input/Input';
 import colors from '../constants/colors';
 import NumberContainer from '../components/NumberContainer/NumberContainer';
-import { Header } from 'react-native/Libraries/NewAppScreen';
 import BodyText from '../components/BodyText/BodyText';
 import TitleText from '../components/TitleText/TitleText';
 import MainButton from '../components/MainButton/MainButton';
@@ -64,10 +62,10 @@ const GameScreen = (props) => {
                 </MainButton>
             </Card>
             <View style={styles.list}>
-                <ScrollView>
+                <ScrollView contentContainerStyle={styles.listContent}>
                     {pastGuesses.map((guess, index) =>
                         <View style={styles.listItem} key={index}>
-                            <BodyText>#{pastGuesses.length-index}</BodyText>
+                            <BodyText>#{pastGuesses.length - index}</BodyText>
                             <BodyText>{guess}</BodyText>
                         </View>)}
                 </ScrollView>
@@ -99,7 +97,12 @@ const styles = StyleSheet.create({
         width: 140
     },
     list: {
-        width: '80%'
+        flex: 1,
+        width: '50%'
+    },
+    listContent: {
+        flexGrow: 1,
+        justifyContent: 'flex-end'
     },
     listItem: {
         borderWidth: 1,
