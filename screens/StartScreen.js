@@ -6,6 +6,7 @@ import colors from '../constants/colors';
 import NumberContainer from '../components/NumberContainer/NumberContainer';
 import BodyText from '../components/BodyText/BodyText';
 import TitleText from '../components/TitleText/TitleText';
+import MainButton from '../components/MainButton/MainButton';
 const StartScreen = (props) => {
     const [enteredText, setEnteredText] = useState('');
     const [confirmed, setConfirmed] = useState(false);
@@ -35,11 +36,11 @@ const StartScreen = (props) => {
     let result;
     if (confirmed) {
         result = (<Card>
-            <BodyText>You choose: Did you want to start?</BodyText>
+            <BodyText>You choose:</BodyText>
             <NumberContainer>{selectedNumber}</NumberContainer>
-                <View style={styles.button}> 
-                    <Button title='START GAME' onPress={()=>{ props.onStartGame(selectedNumber)}} color={colors.primary}/>
-                </View>
+            <BodyText>Did you want to start?</BodyText>
+            
+                    <MainButton title='START GAME' onPress={()=>{ props.onStartGame(selectedNumber)}} color={colors.primary} style={styles.button}/>
                 
         </Card>
         )
@@ -60,12 +61,8 @@ const StartScreen = (props) => {
                         value={enteredText} />
 
                     <View style={styles.buttons}>
-                        <View style={styles.button}>
-                            <Button title='Confirm' color={colors.primary} onPress={confirmHandler} />
-                        </View>
-                        <View style={styles.button}>
-                            <Button title='Reset' color={colors.secondary} onPress={resetHandler} />
-                        </View>
+                            <MainButton title='Confirm' color={colors.primary} onPress={confirmHandler} />
+                            <MainButton title='Reset' color={colors.secondary} onPress={resetHandler} />
                     </View>
                 </Card>
                 {result}
@@ -97,12 +94,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     button: {
-        flexDirection: 'row',
-        width: '60%',
-        borderWidth: 1,
-        borderRadius: 3,
-        margin: 10,
-        justifyContent: 'center'
+        width: 200
     }
 })
 export default StartScreen;

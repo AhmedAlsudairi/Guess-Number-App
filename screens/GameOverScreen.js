@@ -7,15 +7,22 @@ import NumberContainer from '../components/NumberContainer/NumberContainer';
 import { Header } from 'react-native/Libraries/NewAppScreen';
 import BodyText from '../components/BodyText/BodyText';
 import TitleText from '../components/TitleText/TitleText';
+import MainButton from '../components/MainButton/MainButton';
 const GameScreen = (props) => {
     return (
         <View style={styles.screen}>
             
-            <TitleText>GAME OVER</TitleText>
-            <Image source={require('../assets/success.png')} style={styles.image} resizeMode='cover'/>
-            <BodyText>The number was: {props.selectedNumber}</BodyText>
-            <BodyText>Guess rounds: {props.guessRounds}</BodyText>
-            <Button title='START NEW GAME' onPress={props.onNewGame}/>
+            <TitleText style={styles.title}>GAME OVER</TitleText> 
+            <Image 
+            source={require('../assets/success.png')} 
+            // source={{uri: 'https://image.freepik.com/free-vector/glitch-game-background_23-2148090006.jpg'}}
+            style={styles.image} 
+            resizeMode='cover' 
+            fadeDuration={1000}
+            />
+            <BodyText style={styles.text}>You select <Text style={styles.highlight}>{props.selectedNumber}</Text> number, the phone take <Text style={styles.highlight}>{props.guessRounds}</Text> rounds to guess your number.</BodyText>
+                <MainButton title='START NEW GAME' onPress={props.onNewGame} color={colors.secondary} style={styles.button}/>
+            
         </View>
     )
 }
@@ -28,16 +35,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
         width: '100%'
     },
-    buttons: {
-        flexDirection: 'row',
-        paddingHorizontal: 15,
-        width: '65%',
-        justifyContent: 'space-evenly',
-        alignItems: 'center'
-    },
-    numberContainer: {
-        width: '15%'
-    },
     image: {
         width: 300,
         height: 300,
@@ -45,6 +42,22 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderColor: colors.primary,
         margin: 15
+    },
+    highlight: {
+        color: colors.primary,
+        fontWeight: 'bold'
+    },
+    text: {
+        marginHorizontal: 30,
+        marginVertical: 15,
+        fontSize: 18,
+        textAlign: 'center'
+    },
+    title: {
+        fontSize: 22
+    },
+    button: {
+        width: '60%'
     }
 })
 export default GameScreen;

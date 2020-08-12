@@ -2,11 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import colors from '../../constants/colors';
 import BodyText from '../BodyText/BodyText';
+import TitleText from '../TitleText/TitleText';
 const NumberContainer = (props) => {
 
     return (
         <View style={{...styles.numberContainer,...props.style}}>
-            <BodyText style={styles.number}>{props.children}</BodyText>
+            <TitleText style={styles.number}>{props.children}</TitleText>
         </View>
     );
 }
@@ -20,7 +21,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderTopLeftRadius: 30,
-        borderTopRightRadius: 30
+        borderTopRightRadius: 30,
+        borderColor: colors.secondary,
+        borderWidth: 5
+
         },
     number: {
         color: colors.praimaryText,

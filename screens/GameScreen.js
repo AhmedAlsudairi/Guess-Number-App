@@ -7,7 +7,8 @@ import NumberContainer from '../components/NumberContainer/NumberContainer';
 import { Header } from 'react-native/Libraries/NewAppScreen';
 import BodyText from '../components/BodyText/BodyText';
 import TitleText from '../components/TitleText/TitleText';
-
+import MainButton from '../components/MainButton/MainButton';
+import {Ionicons} from '@expo/vector-icons';
 const generateRandomGuess = (min , max, exclude) => {
     let minimaum = Math.ceil(min);
     let maximum = Math.floor(max);
@@ -54,8 +55,12 @@ const GameScreen = (props) => {
             <TitleText>Gueesed number: </TitleText>
             <NumberContainer style={styles.numberContainer}>{guessed}</NumberContainer>
             <Card style={styles.buttons}>
-                <Button title='LOWER' onPress={()=>{nextGuess('lower')}}/>
-                <Button title='GREATER' onPress={()=>{nextGuess('greater')}}/>
+                <MainButton title='LOWER' onPress={()=>{nextGuess('lower')}} color={colors.secondary} style={styles.button}>
+                <Ionicons name="md-remove-circle-outline" size={17} color={colors.praimaryText} />
+                </MainButton>
+                <MainButton title='GREATER' onPress={()=>{nextGuess('greater')}} color={colors.primary} style={styles.button}>
+                <Ionicons name="md-add-circle-outline" size={16} color={colors.praimaryText} />
+                </MainButton>           
             </Card>
         </View>
     )
@@ -72,12 +77,16 @@ const styles = StyleSheet.create({
     buttons: {
         flexDirection: 'row',
         paddingHorizontal: 15,
-        width: '65%',
+        width: '80%',
         justifyContent: 'space-evenly',
         alignItems: 'center'
     },
     numberContainer: {
         width: '15%'
+    },
+    button: {
+        width: 140
     }
+
 })
 export default GameScreen;
