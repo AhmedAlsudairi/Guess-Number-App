@@ -17,7 +17,7 @@ const MainButton = (props) => {
 
 const styles = StyleSheet.create({
     mainButton: {
-        width: Dimensions.get('window').width / 4,
+        width: Dimensions.get('window').width / 3.5,
         height: 50,
         marginVertical: 15,
         marginHorizontal: 20,
