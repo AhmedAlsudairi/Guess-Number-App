@@ -1,10 +1,11 @@
 import React from 'react';
-import { TouchableOpacity, View, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, StyleSheet, Dimensions } from 'react-native';
 import colors from '../../constants/colors';
 import TitleText from '../TitleText/TitleText';
 
-const MainButton = (props) => {
 
+
+const MainButton = (props) => {
     return (
         <TouchableOpacity activeOpacity={0.6} onPress={props.onPress}>
             <View style={{ ...styles.mainButton, ...props.style, backgroundColor: props.color }}>
@@ -16,7 +17,7 @@ const MainButton = (props) => {
 
 const styles = StyleSheet.create({
     mainButton: {
-        width: 100,
+        width: Dimensions.get('window').width / 4,
         height: 50,
         marginVertical: 15,
         marginHorizontal: 20,

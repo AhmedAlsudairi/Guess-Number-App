@@ -18,7 +18,9 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 120,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        borderBottomColor: Platform.OS === "ios" ? 'black' : 'white',
+        borderBottomWidth: Platform.OS === "ios" ? 1:0
     },
     headerTitle: {
         color: colors.praimaryText,
